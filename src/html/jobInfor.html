@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工作信息(3/4)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+	</head>
+	<body>
+		<div class="page-wrapper" id="graduateInfor-main-wrapper"></div>
+		<div id="popup-box" class="dialog-wrapper">
+			<ul class="select-wrapper">
+				
+			</ul>
+		</div>
+		<div id="ative-popup-box" class="dialog-wrapper dialog-active">
+			<div class="input-wrapper">
+				<input class="search-input" placeholder="请输入提示信息" type="text" />
+			</div>
+			<ul class="select-wrapper">
+			</ul>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/lrz.all.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="jobInfor-tpl">
+		<article>
+			<div class="group lrpadding12 page-container">
+				<div class="inputbox underline">
+	                <label class="inputbox-left">所在单位</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="organization-infor" type="text" class="input-text search-select" data-type="organization" data-id="{{organization_id}}" value="{{organization}}" readonly placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left" >财务工龄</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="job-years" data-type="jobYears" type="text" value="{{experience}}" class="input-text simple-select" readonly placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left">财务高管工龄</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="experience-years" data-type="jobYears" type="text" value="{{experience2}}" class="input-text simple-select" readonly placeholder="请选择" />
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left">职位</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="post-infor" data-type="point" value="{{job_post}}" type="text" class="input-text simple-select" readonly placeholder="请选择" />
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="upload-page-wrapper">
+	            	<label>工作能力证明</label>
+	            	<div class="upload-page">
+	            		<div class="upload-page-left radius4 text-center">
+	            			<input type="file" class="input-file"/>
+	            			{{if contribution_url1}}
+	            				<img id="grd-image" class="image-src" src="{{contribution_url1 | addBaseImageSrc}}" />
+	            			{{else}}
+	            				<img id="grd-image" class="image-src transparent"/>
+	            			{{/if}}
+	            			<div class="loadingBox hide">
+							  	<div class="loading"></div>
+							</div>
+							<span>点击上传</span>
+	            		</div>
+	            		<div class="download-button-wrapper">
+	            			<a class="button radius40 text-cente" href="##">
+	            				<span>工作能力证明模板</span>
+	            			</a>
+	            		</div>
+	            	</div>
+	            </div>
+	        </div>
+	    </article>
+        <p class="bottom-msg-tip-wrapper lrpadding12">
+			<i class="msg-tip-icon"></i>
+			<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过2M</span>
+		</p>
+		<footer class="page-footer lrpadding12 active-page-footer">
+			<div class="page-footer-buttons-wrapper">
+				<a id="prev-btn" href="javascript:void(0)" class="button radius4 active-button white-btn">上一步</a>
+				<a id="next-btn" href="javascript:void(0)" class="button radius4 active-button">下一步</a>
+			</div>
+		</footer>
+	</script>
+	<script src="scripts/jobInfor.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

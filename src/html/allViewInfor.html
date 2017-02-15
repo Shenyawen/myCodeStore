@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>确认提交</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="styles/libs.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+		<link rel="stylesheet" type="text/css" href="styles/allViewInfor.min.css" />
+	</head>
+	<body>
+		<div class=" page-wrapper-list" id="allview-main-wrapper"></div>
+		
+		<div id="image-dialog-pop" class="image-dialog">
+			<img>
+		</div>
+		<div id="jude-star-pop" class="jude-star-wrapper">
+			<h3 class="star-title">星级预判</h3>
+			<div class="star-list-wrapper">
+				<div class="star-infors">
+					<ul class="star-icons clearfix"></ul>
+					<p class="star-level-infor">三星C级</p>
+				</div>
+			</div>
+			<a class="button block radius4 active-button close-star-dialog" href="javascript:void(0)">我知道了</a>
+		</div>
+		<div id="organization-pop" class="active-dialog-wrapper">
+			<div class="organizations-wrapper">
+				<ul class="select-wrapper"></ul>
+			</div>
+			<div class="exports-wrapper hide">
+				<h4><a class="get-back-btn" href="javascript:void(0)">返回</a><span>(必须选择两位专家)</span></h4>
+				<div class="select-wrapper"></div>
+				<div class="exports-confirm-wrapper">
+					<a class="button block radius4 active-button exports-confirm-btn" style="margin-right: 0;" href="javascript:void(0)">确定</a>
+				</div>
+			</div>
+		</div>
+		<div id="loadding-active-pop" class="loadding-wrapper">
+			<div class="loading"></div>
+			<span>数据处理中...</span>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="allview-tpl">
+		<article class="lrpadding12 page-wrapper all-view-header">
+			<i class="active-msg-tip"></i>
+			<span>为了给您提供更好地服务，请确认一下信息。已经提交录入的信息不可修改，在未经本人允许的情况下我们不会泄露您的个人信息</span>
+		</article>
+		<article class="page-wrapper ">
+			<div class="group lrpadding12 page-container active-group">
+				<h2 class="page-header underline">
+					<span>个人信息</span>
+					<a class="reset-infor-btn" href="personalInfor.html">编辑</a>
+				</h2>
+				<div class="infor-list">
+					<p>
+						<label>姓名：</label>
+						<span>{{talent_name}}</span>
+					</p>
+					<p>
+						<label>身份证号：</label>
+						<span>{{card_id}}</span>
+					</p>
+					<p>
+						<label>所在地区：</label>
+						<span>{{province + city}}</span>
+					</p>
+					<h3 class="images-header">身份证复印件/证件照</h3>
+					<div class="all-images-box">
+						<div class="all-image">
+							<img src="{{card_url | addBaseImageSrc}}" />
+						</div>
+						<div class="all-image">
+							<img src="{{portrait_url | addBaseImageSrc}}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+		<article class="page-wrapper">
+			<div class="group lrpadding12 page-container active-group">
+				<h2 class="page-header underline">
+					<span>学历信息</span>
+					<a class="reset-infor-btn" href="graduateInfor.html">编辑</a>
+				</h2>
+				<div class="infor-list">
+					<p>
+						<label>最高学历：</label>
+						<span>{{degree}}</span>
+					</p>
+					<p>
+						<label>毕业学校：</label>
+						<span>{{edu_name}}</span>
+					</p>
+					<p>
+						<label>所学专业：</label>
+						<span>{{major_name}}</span>
+					</p>
+					<h3 class="images-header">毕业证/学位证</h3>
+					<div class="all-images-box">
+						<div class="all-image">
+							<img src="{{diploma_url | addBaseImageSrc}}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+		<article class="page-wrapper">
+			<div class="group lrpadding12 page-container active-group">
+				<h2 class="page-header underline">
+					<span>工作信息</span>
+					<a class="reset-infor-btn" href="jobInfor.html">编辑</a>
+				</h2>
+				<div class="infor-list">
+					<p>
+						<label>所在单位：</label>
+						<span>{{organization}}</span>
+					</p>
+					<p>
+						<label>工作工龄：</label>
+						<span>{{experience}}年</span>
+					</p>
+					<p>
+						<label>财务高管工龄：</label>
+						<span>{{experience2}}年</span>
+					</p>
+					{{if contribution_url1}}
+						<h3 class="images-header">工作能力证明</h3>
+						<div class="all-images-box">
+							<div class="all-image">
+								<img src="{{contribution_url1 | addBaseImageSrc}}" />
+							</div>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</article>
+		<article class="page-wrapper">
+			<div class="group lrpadding12 page-container active-group">
+				<h2 class="page-header underline">
+					<span>工作业绩</span>
+					<a class="reset-infor-btn" href="workPerformance.html">编辑</a>
+				</h2>
+				<div class="job-infors-list">
+					{{if cresLength}}
+						<div class="job-infor">
+							<h3>专业资格与职称证书</h3>
+							<div class="job-type-list">
+								{{each credentials as value i}}
+									<p>
+										<label>证书类型：</label>
+										<span>{{value.cer_id | resetTypeName : 'cre'}}</span>
+									</p>
+									<h4>证书图片</h4>
+									<div class="all-images-box">
+										<div class="all-image">
+											<img src="{{value.cer_url | addBaseImageSrc}}" />
+										</div>
+									</div>
+								{{/each}}
+							</div>
+						</div>
+					{{/if}}
+					{{if casesLength}}
+						<div class="job-infor ">
+							<h3>财务案例</h3>
+							<div class="job-type-list">
+								{{each cases as value i}}
+									<p>
+										<label>案例类型：</label>
+										<span>{{value.case_id | resetTypeName : 'case'}}</span>
+									</p>
+									<div class="case-list clearfix">
+										<label>案例文件：</label>
+										<a href="{{value.case_url | addBaseImageSrc}}">点击预览文件</a>
+									</div>
+								{{/each}}
+							</div>
+						</div>
+					{{/if}}
+					{{if papersLength}}
+						<div class="job-infor">
+							<h3>发表文献</h3>
+							<div class="job-type-list">
+								{{each papers as value i}}
+									<p>
+										<label>类型：</label>
+										<span>{{value.papers_id | resetTypeName : 'paper'}}</span>
+									</p>
+									<h4>文献图片</h4>
+									<div class="all-images-box">
+										<div class="all-image">
+											<img src="{{value.papers_url | addBaseImageSrc}}" />
+										</div>
+									</div>
+								{{/each}}
+							</div>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</article>
+		<article class="page-wrapper">
+			<div class="group lrpadding12 page-container active-group">
+				<h2 class="page-header underline">
+					<span>辅助填表人</span>
+					<a class="reset-infor-btn" href="provePerson.html">编辑</a>
+				</h2>
+				<div class="infor-list">
+					<p>
+						<label>辅助填表人编号：</label>
+						<span>{{sales}}</span>
+					</p>
+				</div>
+			</div>
+		</article>
+		<footer class="page-footer lrpadding12">
+			<div class="page-footer-buttons-wrapper">
+				<a id="jude-star-btn" href="javascript:void(0)" class="button radius4 active-button">星级预判</a>
+				<a id="submit-apply-btn" href="javascript:void(0)" class="button radius4 active-button hide">提交申请</a>
+			</div>
+		</footer>
+	</script>
+	<script src="scripts/allViewInfor.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

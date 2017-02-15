@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>辅助填表人</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="styles/libs.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles/common.min.css" />
+		<style type="text/css">
+			.prove-wrapper{
+				background: #fff;
+				/*padding-bottom: 10px;*/
+			}
+			.prove-header{
+				height: 45px;
+				line-height: 45px;
+				font-size: 15px;
+				color: #333;
+			}
+			.prove-header span{
+				color: #999;
+				font-size: 12px;
+			}
+			.prove-input{
+				border: 0 none;
+			}
+			.loading-pop{
+				padding: 20px;
+				padding-bottom: 0;
+				text-align: center;
+			}
+			.loading-pop span{
+				display: block;
+				line-height: 36px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<article class="prove-wrapper" id="prove-main-wrapper">
+			
+		</article>
+		<footer class="page-footer lrpadding12 active-page-footer">
+			<div class="page-footer-buttons-wrapper">
+				<a id="prev-btn" href="javascript:void(0)" class="button radius4 active-button white-btn">上一步</a>
+				<a id="save-btn" href="javascript:void(0)" class="button radius4 active-button">保存信息</a>
+			</div>
+		</footer>
+		<div id="loadding-pop" class="loading-pop hide">
+		  	<div class="loading"></div>
+		  	<span>请稍后...</span>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="prove-tpl">
+		
+		<label class="prove-header lrpadding12 ">辅助填表人<span>（选填）</span></label>
+		<div class="group  lrpadding12">
+			
+            <label class="inputbox underline" style="padding: 10px 12px 10px 0;" for="yes-check">
+                <input data-type="true" type="radio" class="input-radio"  checked="true" name="rdo" id="yes-check">
+                <span>
+                	<input id="prove-input" class="prove-input" value="{{prove}}" placeholder="请输入辅助填表人编号" type="text">
+                </span>
+            </label>
+            <label class="inputbox" style="padding: 10px 12px 10px 0;" for="no-check">
+                <input data-type="" type="radio" class="input-radio"  name="rdo" id="yes-check">
+                <span>无</span>
+            </label>
+        </div>
+	</script>
+	<script src="scripts/provePerson.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

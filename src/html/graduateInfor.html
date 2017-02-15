@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>最高学历(2/4)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+	</head>
+	<body>
+		<!--<article id="graduateInfor-main-wrapper" class="page-wrapper"></article>-->
+		<div class="page-wrapper" id="graduateInfor-main-wrapper"></div>
+		
+		<div id="popup-box" class="dialog-wrapper">
+			<ul class="select-wrapper">
+				
+			</ul>
+		</div>
+		<div id="ative-popup-box" class="dialog-wrapper dialog-active">
+			<div class="input-wrapper">
+				<input class="search-input" placeholder="请输入提示信息" type="text" />
+			</div>
+			<ul class="select-wrapper">
+			</ul>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/lrz.all.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="graduateInfor-tpl">
+		<article>
+			<div class="group lrpadding12 page-container">
+				<div class="inputbox underline">
+	                <label class="inputbox-left">最高学历</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="edu-infor" data-type="high-edu" value="{{degree}}" type="text" class="input-text simple-select" readonly placeholder="请选择" />
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left" >毕业学校</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="school-infor" data-id="{{edu_id}}" data-type="school" value="{{edu_name}}" type="text" readonly class="input-text search-select" placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left">所学专业</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="major-infor" data-type="major" data-id="{{major_id}}" value="{{major_name}}" type="text" class="input-text search-select" readonly placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left">毕业年份</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="edu-date" data-type="gra-year" value="{{unm_year}}" type="text" class="input-text simple-select" readonly placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="upload-page-wrapper">
+	            	<label>毕业证或学位证<small>(未毕业请上传学生证)</small></label>
+	            	<div class="upload-page">
+	            		<div class="upload-page-left radius4 text-center">
+	            			<input type="file" class="input-file"/>
+	            			{{if diploma_url}}
+	            				<img id="grd-image" class="image-src" src="{{diploma_url | addBaseImageSrc}}" />
+	            			{{else}}
+	            				<img id="grd-image" class="image-src transparent" src="{{diploma_url | addBaseImageSrc}}" />
+	            			{{/if}}
+	            			<div class="loadingBox hide">
+							  	<div class="loading"></div>
+							</div>
+							<span>点击上传毕业证</span>
+	            		</div>
+	            		<div class="upload-page-right radius4 text-center transparent">
+	            			<input class="hide" type="file" />
+	            			<span>点击上传身份证</span>
+	            		</div>
+	            	</div>
+	            </div>
+	        </div>
+	    </article>
+        <p class="bottom-msg-tip-wrapper lrpadding12">
+			<i class="msg-tip-icon"></i>
+			<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过2M</span>
+		</p>
+		<footer class="page-footer lrpadding12 active-page-footer">
+			<div class="page-footer-buttons-wrapper">
+				<a id="prev-btn" href="javascript:void(0)" class="button radius4 active-button white-btn">上一步</a>
+				<a id="next-btn" href="javascript:void(0)" class="button radius4 active-button blue-active-buttton">下一步</a>
+			</div>
+		</footer>
+	</script>
+	<script src="scripts/graduateInfor.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

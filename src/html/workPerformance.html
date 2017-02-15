@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>工作业绩(4/4)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="styles/libs.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles/common.min.css" />
+		<style type="text/css">
+			body{
+				padding-top: 0;
+			}
+			i{
+				font-style: normal ;
+			}
+			.work-header {
+				display: -webkit-flex;
+				display: flex;
+				line-height: 50px;
+				height: 50px;
+				background: #7bd49c;
+			}
+			
+			.work-header span {
+				flex: auto;
+				color: #fff;
+				font-size: 15px;
+			}
+			
+			.work-header a {
+				flex: 0 0 70px;
+				margin-top: 7px;
+				height: 36px;
+				background: none;
+				border: 1px solid #fff;
+			}
+			
+			.active-msg-tip-wrapper {
+				padding: 10px 0;
+			}
+			
+			.add-upload-page-button {
+				line-height: 72px;
+				margin-top: 10px;
+				height: 72px;
+				border: 1px dashed #ccc;
+				cursor: pointer;
+				color: #ccc;
+			}
+			
+			.active-texarea-box label {
+				padding: 10px 0;
+				width: 16%;
+			}
+			
+			.page-wrapper-list {
+				padding-bottom: 68px;
+			}
+			.upload-page-word{
+				height: 45px;
+				line-height: 45px;
+			}
+			.upload-btn-wrapper{
+				display: inline-block;
+				position: relative;
+				height: 100%;
+				float: left;
+			}
+			.upload-btn-wrapper input{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				opacity: 0;
+			}
+			.word-delete-btn-wrapper{
+				float: right;
+				height: 100%;
+				font-size: 14px;
+			}
+			.word-delete-btn-wrapper a{
+				padding:0 15px;
+				color:#3189e2 ;
+			}
+			.inputbox{
+				width: 100%;
+			}
+			.word-text{
+				color: #3189e2;
+				font-size: 14px;
+			}
+			.page-module-wrapper{
+				position: relative;
+				padding-bottom: 70px;
+			}
+			.bottom-msg-tip-wrapper{
+				position: absolute;
+				width: 100%;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				box-sizing: border-box;
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="page-wrapper-list" id="workMance-main-wrapper">
+			
+		</div>
+		
+		<div id="popup-box" class="dialog-wrapper">
+			<ul class="select-wrapper">
+				
+			</ul>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/lrz.all.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="workMance-tpl">
+		<h1 id="tip-header" class="work-header lrpadding12" style="display: none;">
+			<span>工作业绩为选填内容</span>
+			<a class="button radius40" href="/provePerson.html">跳过</a>
+		</h1>
+		<article id="cres-list" class="page-wrapper">
+			<div class="group page-container active-group">
+				{{each credentials as value i}}
+					<div data-src="{{value.cer_url}}" data-type="{{value.cer_id}}" class="page-module-wrapper lrpadding12">
+						<h2 class="page-header underline">
+							<span>专业资格与职称证书(<i class="module-num">{{++i | numToChinese}}</i>)</span>
+							<a class="delete-page-btn" href="jacascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper">
+							<div class="inputbox underline">
+								<label class="inputbox-left">证书类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="cre" class="input-text simple-select" value="{{value.cer_id | resetTypeName : 'cre'}}" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传证书图片</label>
+									<div class="upload-page">
+										<div class="upload-page-left radius4 text-center">
+											<input type="file" class="input-file"/>
+					            			<img id="grd-image" class="image-src" src="{{value.cer_url | addBaseImageSrc}}" />
+					            			<div class="loadingBox hide">
+											  	<div class="loading"></div>
+											</div>
+											<span>点击上传</span>
+										</div>
+										<div class="upload-page-right transparent"></div>
+									</div>
+								</div>
+							</div>
+							<p class="lrpadding12 active-msg-tip-wrapper bottom-msg-tip-wrapper">
+								<i class="msg-tip-icon"></i>
+								<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过5M</span>
+							</p>
+						</div>
+					</div>
+				{{/each}}
+				{{if !credentials.length}}
+					<div class="page-module-wrapper lrpadding12">
+					    <h2 class="page-header underline">
+							<span>专业资格与职称证书(<i class="module-num">一</i>)</span>
+							<a class="delete-page-btn" href="jacascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper">
+							<div class="inputbox underline">
+								<label class="inputbox-left">证书类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="cre" class="input-text simple-select" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传证书图片</label>
+									<div class="upload-page">
+										<div class="upload-page-left radius4 text-center">
+											<input type="file" class="input-file"/>
+					            			<img class="image-src transparent" />
+					            			<div class="loadingBox hide">
+											  	<div class="loading"></div>
+											</div>
+											<span>点击上传</span>
+										</div>
+										<div class="upload-page-right transparent"></div>
+									</div>
+								</div>
+							</div>
+							<p class="lrpadding12 active-msg-tip-wrapper bottom-msg-tip-wrapper">
+								<i class="msg-tip-icon"></i>
+								<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过5M</span>
+							</p>
+						</div>
+					</div>
+				{{/if}}
+				<p data-type="cre" class="text-center radius4 add-upload-page-button lrmargin12">+添加专业资格与职称证书</p>
+			</div>
+		</article>
+		<article id="cases-list" class="page-wrapper">
+			<div class="group page-container active-group">
+				{{each cases as value i}}
+					<div data-type="{{value.case_id}}" data-src="{{value.case_url}}" class="page-module-wrapper lrpadding12">
+						<h2 class="page-header underline">
+							<span>财务案例(<i class="module-num">{{++i | numToChinese}}</i>)</span>
+							<a class="delete-page-btn" href="javascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper">
+							<div class="inputbox underline">
+								<label class="inputbox-left">案例类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="case" class="input-text simple-select" value="{{value.case_id | resetTypeName : 'case'}}" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传案例文件</label>
+									<div class="upload-page-word">
+										<div class="upload-btn-wrapper">
+											<input type="file" class="upload-word-btn hide" />
+											<a class="word-text" href="javascript:void(0)">上传成功</a>
+										</div>
+										<div class="word-delete-btn-wrapper">
+											<a class="word-delete-btn" href="{{value.case_url | addBaseImageSrc}}">点击查看</a>
+										</div>
+									</div>
+								</div>
+								<p class="lrpadding12 active-msg-tip-wrapper bottom-msg-tip-wrapper">
+									<i class="msg-tip-icon"></i>
+									<span class="msg-tip-text">请上传指定格式的word文件，格式要求为：doc/docx，大小不得超过5M</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				{{if !cases.length}}
+					<div class="page-module-wrapper lrpadding12">
+						<h2 class="page-header underline">
+							<span>财务案例(<i class="module-num">一</i>)</span>
+							<a class="delete-page-btn" href="javascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper">
+							<div class="inputbox underline">
+								<label class="inputbox-left">证书类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="case" class="input-text simple-select" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传案例文件</label>
+									<div class="upload-page-word clearfix">
+										<div class="upload-btn-wrapper">
+											<input type="file" class="upload-word-btn" />
+											<a class="word-text" href="javascript:void(0)">点击上传word</a>
+										</div>
+										<div class="word-delete-btn-wrapper hide">
+											<a class="word-delete-btn" href="javascript:void(0)">查看</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="active-msg-tip-wrapper bottom-msg-tip-wrapper">
+								<i class="msg-tip-icon"></i>
+								<span class="msg-tip-text">请上传指定格式的word文件，格式要求为：doc/docx，大小不得超过5M</span>
+							</p>
+						</div>
+					</div>
+				{{/if}}
+				<p data-type = "case" class="text-center radius4 add-upload-page-button lrmargin12">+添加财务案例</p>
+			</div>
+		</article>
+		<article id="papers-list" class="page-wrapper">
+			<div class="group page-container active-group">
+				{{each papers as value i}}
+					<div data-src="{{value.papers_url}}" data-type="{{value.papers_id}}" class="page-module-wrapper lrpadding12">
+						<h2 class="page-header underline">
+							<span>发表文献(<i class="module-num">{{++i | numToChinese}}</i>)</span>
+							<a class="delete-page-btn" href="javascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper">
+							<div class="inputbox underline">
+								<label class="inputbox-left">文献类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="paper" class="input-text simple-select" value="{{value.papers_id | resetTypeName : 'paper'}}" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传文献图片</label>
+									<div class="upload-page">
+										<div class="upload-page-left radius4 text-center">
+											<input type="file" class="input-file"/>
+					            			<img class="image-src" src="{{value.papers_url | addBaseImageSrc}}" />
+					            			<div class="loadingBox hide">
+											  	<div class="loading"></div>
+											</div>
+											<span>点击上传</span>
+										</div>
+										<div class="upload-page-right transparent"></div>
+									</div>
+								</div>
+							</div>
+							<p class="active-msg-tip-wrapper bottom-msg-tip-wrapper">
+								<i class="msg-tip-icon"></i>
+								<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过5M</span>
+							</p>
+						</div>
+					</div>
+				{{/each}}
+				{{if !papers.length}}
+					<div class="page-module-wrapper lrpadding12">
+						<h2 class="page-header underline">
+							<span>发表文献(<i class="module-num">一</i>)</span>
+							<a class="delete-page-btn" href="javascript:void(0)">删除</a>
+						</h2>
+						<div class="page-main-wrapper paper-clone-tpl">
+							<div class="inputbox underline">
+								<label class="inputbox-left">文献类型</label>
+								<div class="inputbox-right inputbox">
+									<input type="text" data-type="paper" class="input-text simple-select" readonly placeholder="请选择" />
+									<i class="icon list-icon icon-arrowright"></i>
+								</div>
+							</div>
+							<div class="upload-page-list">
+								<div class="upload-page-wrapper">
+									<label>上传文献图片</small></label>
+									<div class="upload-page">
+										<div class="upload-page-left radius4 text-center">
+											<input type="file" class="input-file"/>
+					            			<img id="grd-image" class="image-src transparent" />
+					            			<div class="loadingBox hide">
+											  	<div class="loading"></div>
+											</div>
+											<span>点击上传</span>
+										</div>
+										<div class="upload-page-right transparent"></div>
+									</div>
+								</div>
+							</div>
+							<p class="active-msg-tip-wrapper bottom-msg-tip-wrapper">
+								<i class="msg-tip-icon"></i>
+								<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG，大小不得超过2M</span>
+							</p>
+						</div>
+					</div>
+					
+				{{/if}}
+				<p data-type="paper" class="text-center radius4 add-upload-page-button lrmargin12">+添加发表文献</p>
+			</div>
+		</article>
+		<footer class="page-footer lrpadding12 active-page-footer">
+			<div class="page-footer-buttons-wrapper">
+				<a id="prev-btn" href="javascript:void(0)" class="button radius4 active-button white-btn">上一步</a>
+				<a id="next-btn" href="javascript:void(0)" class="button radius4 active-button">下一步</a>
+			</div>
+		</footer>
+	</script>
+	<script src="scripts/workPerformance.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

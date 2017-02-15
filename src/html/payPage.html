@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>付费</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+    	<style type="text/css">
+    		.payPage-wrapper{
+    			padding-top: 10px;
+    		}
+    		.pay-header-wrapper{
+    			line-height: 60px;
+    			height: 60px;
+    			background: #fff url(images/pay-header-bg.png) left bottom repeat-x;
+    			background-size:90% ;
+    		}
+    		.pay-header span{
+    			font-weight: bold;
+    			color: #f1861e;
+    		}
+    		.pay-title-wrapper{
+    			padding-top: 10px;
+    			padding-bottom: 10px;
+    		}
+    		.pay-manner-wrapper{
+    			display: -webkit-flex;
+    			display: flex;
+    			flex-wrap: nowrap;
+    			justify-content: space-between;
+    			background: #fff;
+    		}
+    		.manner-logo-wrapper{
+    			padding-top: 22px;
+    			padding-bottom: 22px;
+    			padding-left: 50px;
+    			background: url(images/weixin-logo.png) no-repeat left center;
+    			background-size: 40%;
+    		}
+    		.manner-select-wrapper{
+    			padding-top: 21px;
+    			padding-bottom: 21px;
+    		}
+    		.pay-button-wrapper{
+    			padding: 10px 12px 10px 12px;
+    			background: #fff;
+			    box-shadow: 0 -2px 10px #eee;
+    		}
+    		.pay-button{
+    			width: 100%;
+    		}
+    	</style>
+	</head>
+	<body>
+		<div class="payPage-wrapper" id="page-wrapper"></div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/pingpp.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="payPage-tpl">
+		<div class="pay-header-wrapper lrpadding12">
+			<p class="pay-header">此次待支付评价费用: <span>{{price}}元</span></p>
+		</div>
+		<div class="pay-title-wrapper lrpadding12">
+			<label class="padding12 notbpadding">请选择支付方式</label>
+		</div>
+		<article class="pay-manner-list-wrapper">
+			<ul class="pay-manner-list padding12">
+				<li class="pay-manner-wrapper lrpadding12">
+					<p class="manner-logo-wrapper">
+						<span>微信支付</span>
+					</p>
+					<div class="manner-select-wrapper">
+						<label class="inputbox">
+			                <input class="input-radio" type="radio" checked="checked" name="rdo">
+			            </label>
+					</div>
+				</li>
+			</ul>
+		</article>
+		<footer class="pay-footer ">
+		 	<div class="pay-button-wrapper">
+		 		<button id="pay-btn" class="pay-button blue-active-buttton radius4 button">立即支付</button>
+		 	</div>
+	    </footer>
+	</script>
+	<script src="scripts/payPage.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

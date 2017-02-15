@@ -1,0 +1,162 @@
+ body,
+    html {
+        background: #f6f6f6;
+        width: 100%;
+    }
+    
+    .evaState-top {
+        height: 60px;
+        box-shadow: 0px 3px 5px #ccc;
+        line-height: 60px;
+        padding-left: 20px;
+        font-size: 1rem;
+        background: #fff;
+    }
+    
+    .top-left {
+        margin-right: 10px;
+    }
+    
+    .evaState-top label {
+        color: #686868;
+    }
+    
+    .evaState-top span {
+        color: #333;
+    }
+    
+    .evaContent {
+        padding-left: 20px;
+        margin-top: 20px;
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .evaContent li {
+        height: 50px;
+    }
+    
+    .plan-left {
+        width: 10%;
+    }
+    
+    .plan-left li {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 50%;
+    }
+    
+    .plan-left li span {
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ccc;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -3px;
+        margin-left: -2px;
+        z-index: 10;
+    }
+    
+    .plan-left li i {
+        display: block;
+        width: 2px;
+        height: 50px;
+        background: #ccc;
+    }
+    
+    .plan-left li:first-child {
+        padding-top: 25px;
+    }
+    
+    .plan-left li:first-child i {
+        height: 25px;
+    }
+    
+    .plan-left li:last-child i {
+        height: 25px;
+    }
+    
+    .plan-left li.active span {
+        width: 14px;
+        height: 14px;
+        background: #4d83ef;
+        margin-left: -6px;
+        margin-top: -7px;
+        z-index: 20;
+    }
+    
+    .plan-left li.active span::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        margin-left: -2px;
+        margin-top: -2px;
+        z-index: 1;
+        background: rgba(77, 131, 239, 0.2);
+        border-radius: 50%;
+    }
+    
+    .plan-right {
+        width: 86%;
+    }
+    
+    .plan-right li {
+        border-bottom: 1px solid #eeeeee;
+        line-height: 50px;
+        color: #a1a1a1;
+    }
+    
+    .plan-right li:last-child {
+        border: 0 none;
+    }
+    
+    .plan-right li.active {
+        color: #333;
+    }
+    
+    .star-list {
+        max-width: 90%;
+        line-height: 70px;
+        height: 60px;
+        overflow: hidden;
+    }
+    
+    #star-content {
+        display: inline-block;
+        height: 60px;
+    }
+    
+    #star-content li {
+        width: 1.2rem;
+        height: 1.2rem;
+        display: inline-block;
+        background: url(../images/icon_star_pre.png) no-repeat;
+        background-size: cover;
+        margin-right: 2px;
+    }
+    
+    .star-word {
+        display: inline-block;
+        font-size: 1rem;
+        color: #333;
+        font-weight: 100;
+        height: 60px;
+        line-height: 66px;
+    }
+    #star-level{
+    	font-weight: bold;
+    }
+    .star-word span {
+        display: inline-block;
+        color: #fcbf48;
+        font-size: 1rem;
+        height: 60px;
+        line-height: 60px;
+        margin-right: 2px;
+        margin-top: -2px;
+    }

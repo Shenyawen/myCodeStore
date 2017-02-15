@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title id="apply-tilte">评价流程</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<style type="text/css">
+    		article{
+    			box-sizing: border-box;
+    			background:#469ef7 url(images/index_bg.jpg) no-repeat;
+    			background-size: cover;
+    			padding-top: 40%;
+    		}
+    		h2{
+    			font-size: 15px;
+    			line-height: 36px;
+    		}
+    		.index-container{
+    			width: 75%;
+    			margin: 0 auto;
+    			color: #fff;
+    			padding-bottom: 40px;
+    		}
+    		.index-container p{
+    			font-size: 14px;
+    			padding-left: 20px;
+    			line-height: 24px;
+    		}
+    		.index-container p span{
+    			color: #ffe902;
+    		}
+    		.index-container p a{
+    			display: inline-block;
+    			height: 40px;
+    			background:#fff ;
+    			line-height: 40px;
+    			border-radius: 20px;
+    		}
+    		.index-container p a.down-template{
+    			padding:0 10px;
+    			margin:10px 0;
+    		}
+    		.point-icon{
+    			display: inline-block;
+    			width: 4px;
+    			height: 4px;
+    			border-radius: 50%;
+    			background: #fff;
+    			margin-right: 2px;
+    		}
+    		.down-icon{
+    			display: inline-block;
+    			width: 18px;
+    			height: 18px;
+    			background: url(images/down-icon.jpg) no-repeat;
+    			background-size: cover;
+    			margin-right: 8px;
+    		}
+    		.apply-now-btn{
+    			display: block;
+    			width: 200px;
+    			border-radius: 22px;
+    			height: 44px;
+    			line-height: 44px;
+    			text-align:center;
+    			background:#fff;
+    			margin:0 auto;
+    			color: #189afc;
+    			margin-top: 10px;
+    		}
+    	</style>
+	</head>
+	<body>
+		<article id="applyIndex-all-container" class="">
+			<ul class="index-container">
+				<li>
+					<h2>一.个人信息</h2>
+					<p>
+						<i class="point-icon"></i>
+						<span>身份证</span>正、反面清晰照片或扫描件
+					</p>
+					<p>
+						<i class="point-icon"></i>
+						一寸<span>证件照</span>照片电子版
+					</p>
+				</li>
+				<li>
+					<h2>二.最高学历</h2>
+					<p>
+						<i class="point-icon"></i>
+						<span>毕业证</span>（未毕业学生准备<span>学生证</span>）的清晰照片或扫描件
+					</p>
+				</li>
+				<li>
+					<h2>三.工作信息</h2>
+					<p>
+						<i class="point-icon"></i>
+						<span>工作能力证明</span>（需盖公司公章）的清晰照片或扫描件
+					</p>
+					<p>
+						<a class="down-template" href="http://www.cwrcpj.org/downloadTemp"><i class="down-icon"></i>工作能力证明模板</a>
+					</p>
+				</li>
+				<li>
+					<h2>三.工作业绩（选填）</h2>
+					<p>
+						<i class="point-icon"></i>
+						<span>专业资格</span>与<span>职称证书</span>的清晰照片或扫描件
+					</p>
+					<p>
+						<i class="point-icon"></i>
+						<span>财务案例</span>的word文档（大小不得超过2M）
+					</p>
+					<p>
+						<i class="point-icon"></i>
+						杂志、期刊上发表过的<span>文献</span>或<span>出版过的专著</span>的封面和文章首页的清晰照片或扫描件
+					</p>
+					<p>
+						<i class="point-icon"></i>
+						发表的<span>文献</span>所属杂志期刊的封面和文章首页的清晰照片或扫描件（或出版过的专著的封面和文章首页，共两张图）
+					</p>
+					<a id="apply-now-btn" class="apply-now-btn" href="personalInfor.html">立即申请</a>
+				</li>
+			</ul>
+		</article>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			baseFn.getAllView();
+		})
+	</script>
+</html>

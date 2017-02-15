@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的评价</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+    	<style type="text/css">
+    		.center-text{
+				position: relative;
+			    top: 50%;
+			    -webkit-transform: translateY(-50%);
+			    -o-transform: translateY(-50%);
+			    transform: translateY(-50%);
+				text-align: center;
+				font-size:1rem;
+				color:#b2b2b4;
+			}
+			.center-text img{
+				width:35%;
+				margin-bottom: 15px;
+			}
+			.apply-btn{
+				width:55%;
+				margin:0 auto;
+				margin-top:10px;
+			}
+    	</style>
+	</head>
+	<body>
+		<div class="center-text">
+			<img src="images/reject.png">
+			<p>您的评价申请未通过<br>
+			原因：<span id="err-order"></span>
+			</p>
+			<a class="radius4 button block margin8 active-button blue-active-buttton apply-btn" href="personalInfor.html">返回重新申请</a>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var errType = baseFn.getRequest().errType;
+			$('#err-order').html(errType);
+		})
+	</script>
+</html>

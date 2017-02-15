@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人信息(1/4)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no">
+    	<link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/cropper.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles/common.min.css"/>
+    	<style type="text/css">
+    		.dialog{
+    			width: 90%;
+    		}
+    		.cropper-wrapper{
+    			position: relative;
+    			width: 100%;
+    			padding: 10px;
+    			padding-bottom: 60px;
+    			box-sizing: border-box;
+    			background: #fff;
+    			overflow: hidden;
+    		}
+    		.cropper-image{
+    			width: 100%;
+    		}
+    		.cropper-image img{
+    			width: 90%;
+    		}
+    		.cropper-bottom-btns{
+    			display: flex;
+    			display: -webkit-flex;
+    			justify-content:space-between;
+    			position: absolute;
+				bottom: 0;
+				left: 0;
+				box-sizing: border-box;
+				padding:10px 10px;
+				width: 100%;
+    		}
+    		.cropper-bottom-btns a{
+    			flex: auto;
+    			text-align: center;
+    		}
+    		.cropper-bottom-btns a:first-child{
+    			margin-right: 10px;
+    		}
+    	</style>
+	</head>
+	<body>
+		<div class="page-content-wrapper" id="personInfor-main-wrapper"></div>
+		<div id="cropper-wrapper" class="cropper-wrapper hide">
+			<div class="cropper-image">
+				<img >
+			</div>
+			<p class="cropper-bottom-btns">
+				<a id="cancel-btn" class="button radius4 active-button white-btn" href="javascript:void(0)">取消</a>
+				<a id="confirm-btn" class="button radius4 active-button" href="javascript:void(0)">确定</a>
+			</p>
+		</div>
+	</body>
+	<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/areaJson.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/lrz.all.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/cropper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+	<!--模板-->
+	<script type="text/html" id="personInfor-tpl">
+		<article>
+			<div class="group lrpadding12 page-container">
+	            <div class="inputbox underline">
+	                <label class="inputbox-left" >姓名</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="user-name" type="text" class="input-text" value="{{talent_name}}" class="company" placeholder="请输入姓名" />
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left">身份证号</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="card-number" type="number" class="input-text" value="{{card_id}}"  placeholder="请输入您的身份证号" />
+	                </div>
+	            </div>
+	            <div class="inputbox underline">
+	                <label class="inputbox-left" >所在单位</label>
+	                <div class="inputbox-right inputbox">
+	                    <input id="areaSelect" type="text" class="input-text" value="{{areaName}}" readonly="" placeholder="请选择"/>
+	                    <i class="icon list-icon icon-arrowright"></i>
+	                </div>
+	            </div>
+	            <div class="upload-page-wrapper">
+	            	<label>身份证复印件/证件照</label>
+	            	<div class="upload-page">
+	            		<div class="upload-page-left radius4 text-center">
+	            			<input type="file" class="input-file" data-type="cardImage"/>
+	            			{{if card_url}}
+	            				<img class="image-src" src="{{card_url | addBaseImageSrc}}"/>
+	            			{{else}}
+	            				<img class="image-src transparent" />
+	            			{{/if}}
+	            			<div class="loadingBox hide">
+							  	<div class="loading"></div>
+							</div>
+							<span>点击上传身份证复印件</span>
+	            		</div>
+	            		<div class="upload-page-right radius4 text-center">
+	            			<input id ="input-file-active" type="file" class="input-file" data-type="paperImage" />
+	            			{{if portrait_url}}
+	            				<img class="image-src" src="{{portrait_url | addBaseImageSrc}}" />
+	            			{{else}}
+	            				<img class="image-src transparent" />
+	            			{{/if}}
+	            			<div class="loadingBox hide"  id="cropper-upload-image">
+							  	<div class="loading"></div>
+							</div>
+	            			<span>点击上传证件照</span>
+	            		</div>
+	            	</div>
+	            </div>
+	        </div>
+	    </article>
+	    <p class="bottom-msg-tip-wrapper lrpadding12">
+			<i class="msg-tip-icon"></i>
+			<span class="msg-tip-text">请上传扫描件或清晰照片，照片要求格式为：JPG、PNG、jpeg，大小不得超过5M</span>
+		</p>
+		<footer class="page-footer">
+			<div class="page-footer-buttons-wrapper">
+				<a id="next-btn" href="javascript:void(0)" class="button block lrmargin12 radius4 active-button">下一步</a>
+			</div>
+		</footer>
+	</script>
+	<script src="scripts/personalInfor.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

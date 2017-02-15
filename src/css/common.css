@@ -1,0 +1,403 @@
+@charset "utf-8";
+/*@全局样式*/
+html,body{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+body{
+	padding-top: 10px;
+	background-color: #f6f6f6;
+	padding-bottom: 68px;
+}
+.lrpadding12 {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.lrmargin12 {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.transparent {
+	opacity: 0;
+}
+
+.input-text {
+	padding:13px 12px;
+	text-align: right;
+	padding-right: 0!important;
+}
+.input-text:focus{
+	color: #328ae3;
+}
+
+.inputbox label {
+	white-space: nowrap;
+}
+.input-text[readonly]:focus{
+	color: #555;
+}
+.topline:before,
+.underline:after,
+hr:after {
+	background: #eee;
+}
+.group{
+	margin: 0;
+}
+.group:before,
+.group:after {
+	background-color: #eee;
+}
+
+.group:before {
+	height: 0;
+}
+.inputbox .icon-arrowright{
+	margin-right: 0!important;
+}
+
+
+/*.page-wrapper-list{
+	background: #F6F6F6;
+	padding-bottom: 70px;
+}*/
+.input-checkbox:checked, .input-radio:checked, .input-checkbox.active, .input-radio.active {
+    color: #3189e2;
+}
+.loading-pop{
+	padding:30px;
+	background: #fff;
+}
+/*分块那部分公共代码*/
+.page-content-wrapper{
+	/*padding-bottom: 70px;*/
+	background: #fff;
+}
+.page-wrapper{
+	/*margin-bottom: 10px;*/
+	background: #fff;
+}
+
+.page-container {
+	padding-bottom: 10px;
+}
+.scrollpicker{
+	z-index: 102;
+}
+.scrollpicker-header a{
+	color: #328ae1;
+	padding:0 10px;
+}
+.scrollpicker-cancel {
+    left: 12px;
+}
+.scrollpicker-done {
+    right: 12px;
+}
+.alert h1{
+	color: orange;
+}
+.alert label{
+	text-align: center;
+}
+.alert-handler a{
+	color: #328ae1;
+}
+
+.loadingBox{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	background: #fff;
+}
+.loadingBox .loading{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -20px;
+	margin-left: -20px;
+}
+
+.prompt{
+	top:0!important;
+}
+.blue-active-buttton{
+	background:#3189e2 url(../images/btn-bg.png);
+}
+/*@上传部分公共样式*/
+
+.upload-page-wrapper label {
+	line-height: 45px;
+	font-size: 15px;
+	color: #333;
+}
+
+.upload-page {
+	display: -webkit-flex;
+	display: flex;
+	justify-content:space-between;
+}
+
+.upload-page img.image-src{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.upload-page .upload-page-left,
+.upload-page .upload-page-right {
+	flex:1;
+	position: relative;
+	border: 1px dashed #ccc;
+	padding:16% 0;
+	background-size: 50%;
+	background-position: center 38%;
+	background-repeat: no-repeat;
+}
+
+.download-button-wrapper {
+	flex: 1;
+	padding-top: 12%;
+}
+
+.download-button-wrapper a{
+	line-height: 38px;
+	width: 100%;
+	height: 38px;
+	background: #7bd49c;
+	font-size: 0;
+}
+
+.upload-page .upload-page-left {
+	margin-right: 15px;
+	background-image: url(../images/card-bg-01.jpg);
+}
+
+.upload-page .upload-page-right {
+	background-image: url(../images/card-bg-02.jpg);
+}
+
+.upload-page input[type=file] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.upload-page * span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	top: 72%;
+	font-size: 12px;
+	color: #989898;
+}
+
+
+.download-button-wrapper a span {
+	display: inline-block;
+	padding:0 14px;
+	position: static;
+	margin: 0;
+	color: #fff;
+	font-size: 12px;
+	background: url(../images/down-load-icon.png) no-repeat left center;
+	background-size: 20px 20px;
+}
+/*@工作信息和预览模块头部*/
+.page-header{
+	position: relative;
+	line-height: 48px;
+	height: 48px;
+	background: #fff;
+	font-size: 15px;
+}
+.page-header span{
+	margin-left: 12px;
+	float: left;
+}
+.page-header a{
+	float: right;
+	padding-left: 25px;
+	background: url(../images/delete-icon.png) no-repeat left center;
+	background-size:40% ;
+	color: #3189e2;
+	
+}
+.page-header::before{
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 12px;
+	width: 4px;
+	height: 24px;
+	border-radius: 3px;
+	background: #0b98e8;
+	display: block;
+}
+.active-group{
+	margin:0;
+}
+.active-group:after,.active-group:after{
+	background: none;
+}
+/*@底部提示信息*/
+
+.bottom-msg-tip-wrapper {
+	display: -webkit-flex;
+	display: flex;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #f6f6f6;
+}
+
+.bottom-msg-tip-wrapper .msg-tip-icon {
+	flex: 0 0 16px;
+	margin-right: 6px;
+	height: 16px;
+	background: url(../images/msg-icon.jpg) no-repeat;
+	background-size: cover;
+}
+
+.bottom-msg-tip-wrapper .msg-tip-text {
+	line-height: 20px;
+	font-size: 12px;
+	color: #b2b2b2;
+}
+
+
+/*@底部按钮*/
+
+.page-footer {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 68px;
+	border-top: 1px solid #eee;
+	box-shadow: 0 -2px 10px #eee;
+	text-align: center;
+	background: #fff;
+	z-index: 10;
+}
+
+.page-footer .button {
+	height: 44px;
+}
+
+
+/*两个按钮的情况*/
+
+.page-footer-buttons-wrapper{
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+	padding:12px 0;
+}
+
+.active-button {
+	flex: auto;
+	background:#3189e2 url(../images/btn-bg.png);
+}
+.active-button.white-btn{
+	margin-right: 10px;
+	background: #fff;
+	color: #555;
+	border:1px solid #ccc;
+}
+
+/*选中时的样式*/
+.select-btn-active{
+	background: #eee;
+	color: #555;
+}
+/*.image-dialog {
+	width: 100%;
+}*/
+
+@media screen and (max-width: 640px) {
+    .image-dialog {
+		width: 320px;
+	}
+}
+@media screen and (max-width: 320px) {
+    .image-dialog {
+		width: 240px;
+	}
+}
+
+.image-dialog img{
+	width: 100%;
+}
+/*自定义模态框样式*/
+.dialog-wrapper{
+	/*width: 200px;*/
+	overflow: hidden;
+	/*min-height: 100px;*/
+	max-height: 300px;
+	background: #fff;
+	
+}
+/*媒体查询*/
+@media screen and (max-width: 320px) {
+    .dialog-wrapper{
+    	width: 200px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .dialog-wrapper{
+    	width: 250px;
+    }
+}
+
+.select-wrapper{
+	width: 100%;
+	/*min-height: 100px;*/
+	max-height: 300px;
+	overflow: auto;
+}
+.dialog-wrapper li{
+	text-align:center;
+}
+.dialog-wrapper li a{
+	display: block;
+	line-height: 38px;
+	height: 38px;
+	color: #999;
+	font-size: 15px;
+}
+.dialog-wrapper li a:focus{
+	background: #eee;
+	color: #555;
+}
+.dialog-active{
+	/*width: 250px;*/
+	max-height: 252px;
+}
+.dialog-active .select-wrapper{
+	max-height: 200px;
+}
+.dialog-active .input-wrapper{
+	padding:0 10px;
+	margin-bottom: 10px;
+}
+.dialog-active input{
+	width: 100%;
+	height: 41px;
+	border:0 none;
+	border-bottom: 1px solid #eee;
+	font-size: 15px;
+}
+.dialog-active input:focus{
+	color: #3189e2;
+	border-color:#3189e2 ;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的评价</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="styles/libs.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/common.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/applyEvaluate.min.css"/>
+</head>
+
+<body class="hide">
+    <div class="evaState-top clearfix">
+        <p class="float-left top-left">
+            <label>申请人：</label>
+            <span id="userName">未知</span>
+        </p>
+        <div class="star-list float-left">
+            <ul id="star-content" class="float-left">
+            </ul>
+            <p class="star-word float-left"><span id="star-level"></span>级</p>
+        </div>
+    </div>
+    <div class="evaContent clearfix">
+        <ul class="plan-left float-left status-list" id="status-list-left">
+            <li data-type="none"><span></span><i></i></li>
+            <li data-type="forming"><span></span><i></i></li>
+            <li data-type="init_submit"><span></span><i></i></li>
+            <li data-type="init_paid"><span></span><i></i></li>
+            <li data-type="init_approval_halfpass"><span></span><i></i></li>
+            <li data-type="init_approval_pass"><span></span><i></i></li>
+            <li data-type="init_check_pass"><span></span><i></i></li>
+            <li data-type="init_reapproval_pass"><span></span><i></i></li>
+            <li data-type="init_public"><span></span><i></i></li>
+            <li data-type="init_vote"><span></span><i></i></li>
+            <li data-type="init_star"><span></span><i></i></li>
+        </ul>
+        <ul class="plan-right float-right status-list" id="status-list-right">
+            <li>未入库</li>
+            <li>材料入库</li>
+            <li>提交申请</li>
+            <li>缴费成功</li>
+            <li>专家正在审核</li>
+            <li>通过专家评审</li>
+            <li>通过评审委审核</li>
+            <li>通过评审委复核</li>
+            <li>人才公示</li>
+            <li>选举投票中</li>
+            <li>颁证</li>
+        </ul>
+    </div>
+</body>
+<script src="scripts/libs.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="scripts/common.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="scripts/applyEvaluate.min.js" type="text/javascript" charset="utf-8"></script>
+</html>
